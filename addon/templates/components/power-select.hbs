@@ -14,7 +14,7 @@
   @rootEventType={{or @eventType "mousedown"}}
   @triggerComponent={{this._ebdTriggerComponent}}
   @contentComponent={{this._ebdContentComponent}}
-  ...attributes as |dropdown|>
+  as |dropdown|>
   <dropdown.Trigger
     @htmlTag={{this._ebdTriggerTagName}}
     @eventType={{or @eventType "mousedown"}}
@@ -30,7 +30,9 @@
     aria-labelledby={{@ariaLabelledBy}}
     aria-required={{@required}}
     title={{@title}}
-    tabindex={{and (not @disabled) (or @tabindex "0")}}>
+    tabindex={{and (not @disabled) (or @tabindex "0")}}
+    ...attributes
+  >
     {{#let (component this.triggerComponent) as |Trigger|}}
       <Trigger
         @htmlTag={{this._triggerTagName}}
